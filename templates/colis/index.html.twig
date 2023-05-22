@@ -1,0 +1,44 @@
+{% extends 'client_back.html.twig' %}
+
+{% block title %}Hello HomeController!{% endblock %}
+{% block titre %}
+
+<h1 class="d-flex justify-content-center">Vos colis sont en cours de traitement</h1>
+
+
+{% endblock %}
+{% block body %}
+
+
+<a class="btn btn-primary mb-3" href="{{ path('app_add')}}"><i class="bi bi-plus-circle-fill"></i> Ajouter</a>
+
+
+<div class="container">
+    <table border=1 class="table table-striped">
+        <p>Client ID: {{ id }}</p>
+
+        <tr>
+            <th>Réf</th>
+            <th>Depart</th>
+            <th>Destination</th>
+            <th>Poids</th>
+            <th>Prix</th>
+            <th>Action</th>
+        </tr>
+        {% for coli in colis %}
+            <tr>
+                <td>{{ coli.ref }}</td>
+                <td>{{ coli.depart }}</td>
+                <td>{{ coli.destination }}</td>
+                <td>{{ coli.poids }} Kg</td>    
+                <td>{{ coli.prix }} dt</td> 
+                <td><a href="{{ path('app_show', {'id' : coli.id})}}">Voir plus</a></td>   
+            </tr>
+             {% else %} Tableau Vide!
+        {% endfor %}
+        {{knp_pagination_render(colis)}}
+    </table> 
+</div>
+
+{% endblock %}
+

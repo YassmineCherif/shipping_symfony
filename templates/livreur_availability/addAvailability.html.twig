@@ -1,0 +1,78 @@
+
+{% extends 'livreur_back.html.twig' %}
+    {% block body %}
+    
+  <style>
+    form {
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    
+    div {
+      margin-bottom: 1rem;
+    }
+    
+    label {
+      display: block;
+      margin-bottom: 0.5rem;
+    }
+    
+    input[type="text"],
+    textarea {
+      display: block;
+      width: 100%;
+      padding: 0.5rem;
+      font-size: 1rem;
+      border: 1px solid #ccc;
+      border-radius: 3px;
+    }
+    
+    button[type="submit"] {
+      background-color: #008CBA;
+      color: #fff;
+      border: none;
+      padding: 0.5rem 1rem;
+      border-radius: 3px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background-color 0.2s ease-in-out;
+    }
+    
+    button[type="submit"]:hover {
+      background-color: #006687;
+    }
+    #livreur_availability_status{
+      display: flex;
+      gap: 10px;
+    }
+    
+  </style>
+  
+    {{ form_start(add_form, {'attr': {'method': 'post', 'action': path('livreur_availability_add', {'id': userId})}}) }}
+
+  <div>
+    {{ form_label(add_form.status, 'Status:') }}
+    {{ form_widget(add_form.status, {'attr': {'id': 'status'}}) }}
+  </div>
+
+  <div id="reason-form">
+    {{ form_label(add_form.reason, 'Reason:') }}
+    {{ form_widget(add_form.reason) }}
+  </div>
+
+  <button type="submit">Submit</button>
+
+{{ form_end(add_form) }}
+
+  <script>
+    function toggleReasonForm() {
+      var reasonForm = document.getElementById("reason-form");
+      reasonForm.style.display = "block";
+    }
+
+    // Show reason field by default
+    toggleReasonForm();
+  </script>
+    
+    {% endblock %}
+ 

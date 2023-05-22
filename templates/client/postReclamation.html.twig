@@ -1,0 +1,143 @@
+
+    {% block content %}
+    <style>
+      .reclamtion__form__container{
+         max-width: 600px;
+         margin: auto;
+          width: 100%;
+          height: 100%;
+          display: flex;
+          gap: 50px;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+      }
+      .reclamation__form__title{
+          text-align: center;
+          font-size: 40px;
+          font-weight: 600;
+          font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+      }
+      .reclamtion__form{
+          border: 1px solid lightskyblue;
+          border-radius: 25px;
+          padding: 40px;
+          width: 100%;
+          display: flex;
+          flex-direction: column;
+          gap: 20px;
+          justify-content: flex-start;
+          align-items: flex-start;
+      }
+      .form__item{
+          width: 100%;
+          display: flex;
+          flex-direction: row;
+          justify-content: space-between;
+      }
+      .reclamation__button__container{
+          display: flex;
+          justify-content: flex-end;
+          width: 100%;
+      }
+      .form__item .form__textarea{
+          max-width: 200px;
+          width: 100%;
+          height: 100px;
+      }
+      .form__item input{
+          max-width: 200px;
+          width: 100%;
+      }
+      .form__item textarea{
+          
+          width: 100%;
+          height: 100px;
+      }
+      .form__label{
+          font-size: 20px;
+          font-weight: 600;
+          font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+      }
+      .form__item .form__item__input{
+          max-width: 200px;
+          width: 100%;
+      }
+      .form__label span{
+          color: rgb(103, 101, 101);
+          font-size: 14px;
+      }
+      .reclamtion__submit__btn{
+          border: 1px solid rgb(5, 5, 69);
+          border-radius: 5px;
+          padding: 10px 35px;
+          font-size: 18px;
+          font-weight: 600;
+          font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+          width: 100%;
+          max-width: 200px;
+          cursor: pointer;
+      }
+      .reclamtion__submit__btn:hover{
+          border: 1px solid white;
+          color: white;
+          background-color: rgb(5, 5, 69);
+      }
+      @media only screen and (max-width: 550px) {
+          .reclamtion__form__container{
+              padding: 20px 20px;
+              flex-direction: column;
+              justify-content: center;
+              align-items: center;
+          }
+          .reclamtion__form{
+              padding: 20px;
+          }
+          .form__item{
+              flex-direction: column;
+              justify-content: center;
+              gap: 10px;
+              align-items: center;
+          }
+          .reclamation__button__container{
+              display: flex;
+              justify-content: center;
+              align-content: center;
+              width: 100%;
+          }
+      }
+    
+    </style>
+    
+      <div class="reclamtion__form__container">
+        <div class="reclamation__form__title">Faire une reclamation</div>
+        <form class="reclamtion__form" method="post" action="{{ path('app_post_feedback', { 'id': 1 }) }}">
+            {{ form_start(form) }}
+            <div class="form__item">
+                <div class="form__label">{{ form_label(form.personne_reclame) }}:</div>
+                <div class="form__item__input">{{ form_widget(form.personne_reclame) }}</div>   
+            </div>
+            <div class="form__item">
+                <div class="form__label">{{ form_label(form.type_reclamation) }}:</div>
+                <div class="form__item__input">{{ form_widget(form.type_reclamation) }}</div>    
+            </div>
+            <div class="form__item">
+                <div class="form__label">{{ form_label(form.text) }}: <span>(max 300 caractères)</span></div>
+                <div class="form__textarea">{{ form_widget(form.text) }}</div>     
+            </div>
+            <div class="form__item">
+                <div class="form__label">{{ form_label(form.ref) }}:</div>
+                <div class="form__textarea">{{ form_widget(form.ref) }}</div>     
+            </div>
+            <div class="form__item">
+                <div class="form__label">Nombre d'étoiles:</div>
+                <div>{{ form_widget(form.stars) }}</div>
+            </div>
+            <div class="reclamation__button__container">
+                <input class="reclamtion__submit__btn" type="submit" value="Submit">
+                {{ form_end(form) }}
+            </div>
+        </form>
+    </div>
+    
+    {% endblock %}

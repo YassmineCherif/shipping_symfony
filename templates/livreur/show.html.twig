@@ -1,0 +1,89 @@
+{% extends 'livreur_back.html.twig' %}
+    {% block body %}
+    <style>
+      body{
+          min-height: 100vh;
+      }
+      .show_container{
+          display: flex;
+          gap: 42px;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          width: fit-content;
+          margin: auto;
+      }
+      .informations_container{
+          display: flex;
+          flex-direction: row;
+          gap: 10px;
+          width: 100%;
+          font-weight: 500;
+          font-size: 16px;
+          font-family: sans-serif;
+
+      }
+      .informations_container:hover{
+          color: #e74c3c;
+      }
+      .livreur_informations{
+          display: flex;
+          flex-direction: column;
+          gap: 10px;
+          margin-bottom: -9px;
+      }
+      .btn_delete{
+          color: #ffffff;
+          background-color: #e74c3c;
+          outline: none;
+          border: 0;
+          color: #fff;
+          padding: 10px 20px;
+          text-transform: uppercase;
+      }
+      .show_text{
+          color: #000000;
+          font-weight: 600;
+          font-size: 22px;
+          font-family: sans-serif;
+      }
+      .left_informations_container{
+           color: #7149C6;
+           font-weight: 600;
+      }
+  </style>
+    <div class="show_container">
+        <div class="show_text"><h1>Livreur details</h1></div>
+    <div class="livreur_informations">
+        <div class="informations_container">
+           <div class="left_informations_container">Nom:</div> 
+            <div>{{ livreur.nom }}</div> 
+
+        </div>
+        <div class="informations_container">
+            <div class="left_informations_container">Prenom:</div> 
+             <div>{{ livreur.prenom }}</div> 
+        </div>
+        <div class="informations_container">
+            <div class="left_informations_container">Email:</div> 
+             <div>{{ livreur.email }}</div> 
+        </div>
+        <div class="informations_container">
+            <div class="left_informations_container">Numéro de tel:</div> 
+             <div>{{ livreur.numtel }}</div> 
+        </div>
+        <div class="informations_container">
+          <div class="left_informations_container">Adresse:</div> 
+           <div>{{ livreur.adresse }}</div> 
+      </div>
+    </div>
+            <form action="{{ path('livreur_delete', {'id': livreur.id}) }}" method="POST" onsubmit="return confirm('Are you sure you want to delete your account?')">
+                <input type="hidden" name="_method" value="DELETE">
+                <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ livreur.id) }}">
+                <button type="submit" class="btn_delete">Delete</button>
+            </form>
+</div>
+    
+    
+    {% endblock %}
+  

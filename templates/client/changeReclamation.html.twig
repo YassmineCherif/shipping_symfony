@@ -1,0 +1,35 @@
+{% extends 'client_back.html.twig' %}
+    {% block body %}
+    <style>
+
+    </style>
+        <div class="box">
+            <form method="POST">
+                <span class="text-center">Edit Reclamation</span>
+                {{ form_start(edit_form) }}
+                <div class="input-container">
+                    {{ form_widget(edit_form.text, {'attr': {'required': ''}}) }}
+                    {{ form_label(edit_form.text, 'text') }}
+                </div>
+                <div class="input-container">
+                    {{ form_widget(edit_form.personne_reclame, {'attr': {'required': ''}}) }}
+                    {{ form_label(edit_form.personne_reclame, 'personne_reclame') }}
+                </div>
+                <div class="input-container">
+                    {{ form_widget(edit_form.type_reclamation, {'attr': {'required': ''}}) }}
+                    {{ form_label(edit_form.type_reclamation, 'type_reclamation') }}
+                </div>
+                <div class="input-container">
+                    {{ form_widget(edit_form.ref, {'attr': {'required': ''}}) }}
+                    {{ form_label(edit_form.ref, 'ref') }}
+                </div>
+                <div class="input-container">
+                    {{ form_widget(edit_form.stars) }}
+                    {{ form_label(edit_form.stars, 'stars') }}
+                </div> 
+                <button type="submit" class="btn">Update </button>
+                {{ form_end(edit_form) }}
+            </form>
+            
+        </div>
+    {% endblock %}

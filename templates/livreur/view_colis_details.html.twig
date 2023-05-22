@@ -1,0 +1,80 @@
+  {% extends 'livreur_back.html.twig' %}
+  {% block body %}
+    
+  <style>
+    #customers {
+      font-family: sans-serif;
+      border-collapse: collapse;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 100px;
+  }
+  
+  #customers td, #customers th {
+      border: 1px solid #ddd;
+      padding: 8px;
+
+  }
+  
+  #customers tr:nth-child(even){background-color: #f2f2f2;}
+  
+  #customers tr:hover {background-color: #ddd;}
+  
+  #customers th {
+      padding-top: 12px;
+      padding-bottom: 12px;
+      text-align: left;
+      background-color: #9384D1;
+      color: white;
+  }
+  .title_container_colis{
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #000000;
+  }
+  </style>
+      <div class="title_container_colis"><h1>Liste de mes colis</h1></div>
+          <table id="customers">
+            <tr>
+              <th>ref</th>
+              <th>hauteur</th>
+              <th>largeur</th>
+              <th>poids</th>
+              <th>fragile</th>
+              <th>inflammable</th>
+              <th>depart</th>
+              <th>destination</th>
+              <th>etat colis</th>
+              <th>zone</th>
+              <th>urgent</th>
+              <th>id client</th>
+              <th>id livreur</th>
+            </tr>
+           
+            {% for assignedColis in assignedColisList %}
+            <tr>
+                <td>{{ assignedColis.ref }}</td>
+                <td>{{ assignedColis.hauteur }}</td>
+                <td>{{ assignedColis.largeur }}</td>
+                <td>{{ assignedColis.poids }}</td>
+                <td>{{ assignedColis.fragile }}</td>
+                <td>{{ assignedColis.inflammable }}</td>
+                <td>{{ assignedColis.depart }}</td>
+                <td>{{ assignedColis.destination }}</td>
+                <td>{{ assignedColis.etat_colis }}  <a href="{{ path('update_etat_colis', {'id': assignedColis.id}) }}">Update</a></td>
+                <td>{{ assignedColis.zone }}</td>
+                <td>{{ assignedColis.urgent }}</td>
+                <td>{{ assignedColis.id_client }}</td>
+                <td>{{ assignedColis.id_livreur }}</td>
+            </tr>
+        {% endfor %}
+        
+           
+          </table>
+    
+    {% endblock %}
+ 

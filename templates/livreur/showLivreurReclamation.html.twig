@@ -1,0 +1,83 @@
+{% extends 'livreur_back.html.twig' %}
+
+{% block body %}
+<style>
+    *{
+        margin: 0;
+    }
+    .reclamation__section{
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .reclamation__banner{
+        width: 100%;
+        min-height: 100px;
+        max-height: 150px;
+        background: #0d41e1;
+    }
+    .reclamation__container{
+        width: 100%;
+        max-width: 1080px;
+        margin: auto;
+        width: 100%;
+    }
+    .reclamation__card__container{
+        
+        padding: 20px 135px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 16px;
+    }
+    .reclamation__card{
+        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+        padding: 20px 40px;
+        width: 100%;
+    }
+    .reclamation__card__text{
+        display: flex;
+        flex-direction: row;
+        gap: 8px;
+        font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        font-weight: 500;
+        font-size: 16px;
+    }
+    .reclamation__static{
+        font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        font-weight: 700;
+        font-size: 16px;
+    }
+</style>
+
+        <div class="reclamation__section">
+            <div class="reclamation__container">
+                <div class="reclamation__card__container">
+                    {% for rec in reclamations %}
+                        <div class="reclamation__card">
+                            <div class="reclamation__type reclamation__card__text">
+                                <div class="reclamation__static"> Type : </div>
+                                <div>{{rec.type_reclamation}}</div>
+                            </div>
+                            <div class="reclamation__date reclamation__card__text">
+                                <div class="reclamation__static">Date : </div>
+                                <div>{{rec.date|date('Y-m-d')}}</div>
+                            </div>
+                            <div class="reclamation__text reclamation__card__text">
+                                <div class="reclamation__static">Reclamation : </div>
+                                <div>{{rec.text}}</div>
+                            </div>
+                            <div class="reclamation__ref reclamation__card__text">
+                                <div class="reclamation__static">Réference du colis : </div>
+                                <div>{{rec.ref}}</div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                    {{ knp_pagination_render(reclamations) }}
+                </div>
+            </div>
+                
+        </div>
+    {% endblock %}

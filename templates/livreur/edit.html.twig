@@ -1,0 +1,131 @@
+{% extends 'livreur_back.html.twig' %}
+    {% block body %}
+    <style>
+      body {
+          background-position: center;
+          background-origin: content-box;
+          background-repeat: no-repeat;
+          background-size: cover;
+          min-height: 100vh;
+      }
+      .copyright{
+        display: none;
+      }
+  
+      .text-center {
+          color: #576CBC;    
+          margin: -50px 0 80px 0;
+          display: block;
+          text-align: center;
+          font-weight: 600;
+          font-size: 22px;
+          margin-top: -31px;
+          font-family: sans-serif;
+      }
+  
+      .box {
+          position: absolute;
+          left: 50%;
+          top: 50%;
+          transform: translate(-50%,-50%);
+          background-color: rgba(0, 0, 0, 0.89);
+          border-radius: 3px;
+          padding: 70px 100px;
+      }
+  
+      .input-container {
+          position: relative;
+          margin-bottom: 25px;
+      }
+  
+      .input-container label {
+          position: absolute;
+          top: -15px;
+          left: 0px;
+          font-size: 16px;
+          color: #576CBC;    
+      }
+  
+      .input-container input { 
+          border: 0;
+          border-bottom: 1px solid #555;  
+          background: transparent;
+          width: 100%;
+          padding: 8px 0 5px 0;
+          font-size: 16px;
+          color: #fff;
+      }
+  
+      .input-container input:focus { 
+          border: none;    
+          outline: none;
+          border-bottom: 1px solid #e74c3c;  
+      }
+  
+      .btn {
+          color: #fff;
+          background-color: #e74c3c;
+          outline: none;
+          border: 0;
+          color: #fff;
+          padding: 10px 20px;
+          text-transform: uppercase;
+          margin-top: 50px;
+          margin-bottom: 20px;
+          margin-left: 55px;
+      }
+      .back_tolist_container{
+          font-weight: 600;
+          font-family: sans-serif;
+          color: #7149C6;
+          font-size: 15px;
+      }
+      .password{
+          display: none;
+      }
+      .change_mdp_container{
+          font-weight: 600;
+          font-family: sans-serif;
+          color: #7149C6;
+          font-size: 15px; 
+      }
+  </style>
+    <div class="box">
+        <form method="POST">
+            <span class="text-center">Edit Livreur</span>
+            {{ form_start(edit_form) }}
+            <div class="input-container">
+                {{ form_widget(edit_form.nom, {'attr': {'required': ''}}) }}
+                {{ form_label(edit_form.nom, 'Nom') }}
+
+            </div>
+            <div class="input-container">
+                {{ form_widget(edit_form.prenom, {'attr': {'required': ''}}) }}
+                {{ form_label(edit_form.prenom, 'Prenom') }}
+            </div>
+            <div class="input-container">
+                {{ form_widget(edit_form.email, {'attr': {'required': ''}}) }}
+                {{ form_label(edit_form.email, 'Email') }}
+            </div>
+            <div class="input-container">
+                {{ form_widget(edit_form.numtel) }}
+                {{ form_label(edit_form.numtel, 'Numtel') }}
+            </div>
+            <div class="input-container">
+              {{ form_widget(edit_form.adresse) }}
+              {{ form_label(edit_form.adresse, 'Adresse') }}
+            </div>
+            <div class="input-container password">
+                {{ form_widget(edit_form.password, { 'attr':{'required': ''}}) }}
+                {{ form_label(edit_form.password, 'Password') }}
+            </div>   
+            <div class="change_mdp_container"><a href="{{ path('livreur_change_password', {'id': userId}) }}">Change Password</a></div>
+            <button type="submit" class="btn">Update </button>
+            {{ form_end(edit_form) }}
+            <div class="back_tolist_container"><a href="{{ path('livreur_index') }}">Back to list</a></div>
+        </form>
+        
+    </div>
+    
+    {% endblock %}
+  

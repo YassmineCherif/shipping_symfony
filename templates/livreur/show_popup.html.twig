@@ -1,0 +1,61 @@
+{% extends 'livreur_back.html.twig' %}
+
+    {% block body %}
+    
+    <style>
+      body{
+          min-height: 100vh;
+      }
+      .show_informations{
+          display: flex;
+          justify-content: center;
+          width: 100%;
+  
+      }
+      .popup_content{
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          flex-direction: column;
+          margin: 0;
+      }
+      .show_informations_container{
+          display: flex;
+          align-items: flex-start;
+          flex-direction: column;
+          justify-content: center;
+          width: 100%;
+          text-align: start;
+      }
+  </style>
+    <div id="popup" class="popup">
+        <div class="popup_content">
+            <div class="show_informations_container">
+                <div class="show_informations">
+                    {{ livreur.nom }}
+                </div>
+                <div class="show_informations">
+                    {{ livreur.prenom }}
+                </div>
+                <div class="show_informations">
+                    {{ livreur.email }}
+                </div>
+                <div class="show_informations">
+                  {{ livreur.numtel }}
+                </div>
+                <div class="show_informations">
+                  {{ livreur.adresse }}
+                </div>
+            </div>
+            <button onclick="closePopup()">Close</button>
+        </div>
+    </div>
+    <script>
+        function closePopup() {
+            document.getElementById("popup").style.display = "none";
+        }
+        document.getElementById("popup").style.display = "block";
+    </script>
+    
+    {% endblock %}
+ 

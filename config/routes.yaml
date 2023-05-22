@@ -1,0 +1,59 @@
+#index:
+#    path: /
+#    controller: App\Controller\DefaultController::index
+controllers:
+    resource: ../src/Controller/
+    type: annotation
+
+kernel:
+    resource: ../src/Kernel.php
+    type: annotation
+livreur_delete:
+    path: /livreur/{id}/delete
+    controller: App\Controller\LivreurController::delete
+    methods: [POST]
+livreur_show:
+    path: '/livreur/{id}/'
+    requirements:
+        id: '\d+'
+    controller: 'App\Controller\LivreurController::show'
+livreur_availability_add:
+    path: '/livreur/{id}/addAvailability'
+    controller: 'App\Controller\LivreurAvailabilityController::addLivreurAvailability'
+    methods: ['GET', 'POST']
+    requirements:
+        id: '\d+'
+livreur_change_password:
+    path: '/livreur/{id}/change-password'
+    controller: 'App\Controller\LivreurController::changePassword'
+    methods: ['GET', 'POST']
+livreur_index:
+    path: /livreur
+    controller: App\Controller\LivreurController::showNullLivreurColis
+    methods: GET
+livreur_search_colis_by_zone:
+    path: /livreur/search
+    controller: App\Controller\LivreurController::SearchColis
+    methods: [GET, POST]
+view_colis_details:
+    path: /colis/{id}/livreur/{user_id}
+    controller: App\Controller\LivreurController::viewColisDetails
+update_etat_colis:
+    path: '/livreur/update_etat_colis/{id}'
+    controller: 'App\Controller\LivreurController::updateEtatColis'
+view_my_colis:
+    path: /livreur/colis/{id_livreur}
+    controller: App\Controller\LivreurController::viewMyColis
+    methods: GET
+
+
+
+
+
+
+
+
+
+
+
+

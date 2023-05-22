@@ -1,0 +1,36 @@
+{{ form_start(form) }}
+    {{ form_widget(form) }}
+    <button type="submit" class="btn btn-primary" >{{ button_label|default('Enregistrer avec email') }}</button>
+{{ form_end(form) }}
+{% block content %}
+<style>
+
+
+    /* Style for the submit button */
+    .btn-primary {
+        background-color: #007bff;
+        border-color: #007bff;
+    }
+
+    .btn-primary:hover {
+        background-color: #0069d9;
+        border-color: #0062cc;
+    }
+
+
+
+    /* Style for the icons */
+    .bi {
+        font-size: 24px;
+        margin-right: 10px;
+    }
+
+    .bi-truck-flatbed {
+        color: #7f84ec;
+    }
+
+    .bi-car-front-fill {
+        color: #7f84ec;
+    }
+</style>
+{% endblock %}

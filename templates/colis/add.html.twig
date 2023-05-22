@@ -1,0 +1,13 @@
+{% extends 'client_back.html.twig' %}
+
+{% block body %}
+
+<h1>Envoyer un colis </h1>
+
+{{ form_start(form,{'attr': {'novalidate': 'novalidate'}} ) }}
+
+{% include "colis/_form.html.twig" %}
+    {{ form_end(form) }}
+</div>
+
+{% endblock %}

@@ -1,0 +1,21 @@
+<div class="container ">
+    {{ form_row(form.zone) }}
+    <div class="row mb-3 mt-3">
+        <div class="col-md-6">
+            {{ form_row(form.depart) }}
+         </div>
+         <div class="col-md-6">
+             {{ form_row(form.destination) }}
+         </div>
+    </div>
+    <div class="row mb-3 justify-content-between">
+        <div class="col-md-3">{{ form_row(form.hauteur) }}</div>
+        <div class="col-md-3">{{ form_row(form.largeur) }}</div>
+        <div class="col-md-3">{{ form_row(form.poids) }}</div>
+    </div>
+    <div class="row mb-3 justify-content-between">
+        <div class="col-md-3">{{ form_row(form.fragile) }}</div>
+        <div class="col-md-3">{{ form_row(form.inflammable) }}</div>
+        <div class="col-md-3">{{ form_row(form.urgent) }}</div>
+    </div>
+    <div class="mb-3">{{ form_row(form.id_partenaire) }}</div>

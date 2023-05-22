@@ -1,0 +1,69 @@
+{% block content %}
+<style>
+
+
+    /* Style for the submit button */
+    .btn-primary {
+        background-color: #007bff;
+        border-color: #007bff;
+    }
+
+    .btn-primary:hover {
+        background-color: #0069d9;
+        border-color: #0062cc;
+    }
+
+
+
+    /* Style for the icons */
+    .bi {
+        font-size: 24px;
+        margin-right: 10px;
+    }
+
+    .bi-truck-flatbed {
+        color: #7f84ec;
+    }
+
+    .bi-car-front-fill {
+        color: #7f84ec;
+    }
+</style>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 offset-md-3">
+
+                {{ form_start(form, {'attr': {'class': 'form-horizontal'}}) }}
+                {{ form_errors(form) }}
+                <div class="form-group">
+                    {{ form_label(form.marque, 'Marque', {'label_attr': {'class': 'control-label'}}) }}
+                    {{ form_widget(form.marque, {'attr': {'class': 'form-control'}}) }}
+                </div>
+                <div class="form-group">
+                    {{ form_label(form.type, 'Type', {'label_attr': {'class': 'control-label'}}) }}
+                    <div class="form-check mb-2">
+                        <i class="bi bi-truck-flatbed mr-2"></i>
+                        {{ form_widget(form.type.0, {'attr': {'class': 'form-check-input', 'id': 'truck'}, 'label_attr': {'class': 'form-check-label', 'for': 'truck'}}) }}
+                        {{ form_label(form.type.0, 'Camion', {'label_attr': {'class': 'form-check-label', 'for': 'truck'}}) }}
+                    </div>
+                    <div class="form-check mb-4">
+                        <i class="bi bi-car-front-fill mr-2"></i>
+                        {{ form_widget(form.type.1, {'attr': {'class': 'form-check-input', 'id': 'car'}, 'label_attr': {'class': 'form-check-label', 'for': 'car'}}) }}
+                        {{ form_label(form.type.1, 'Voiture', {'label_attr': {'class': 'form-check-label', 'for': 'car'}}) }}
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    {{ form_label(form.matricule, 'Matricule', {'label_attr': {'class': 'control-label'}}) }}
+                    {{ form_widget(form.matricule, {'attr': {'class': 'form-control'}}) }}
+                </div>
+
+                <div class="mt-3">
+                    <button type="submit" class="btn btn-primary">{{ button_label|default('Enregistrer') }}</button>
+                </div>
+                {{ form_end(form) }}
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

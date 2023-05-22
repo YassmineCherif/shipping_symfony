@@ -1,0 +1,212 @@
+<style>
+    *{
+        margin: 0;
+    }
+    .feedback__section{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .feedback__banner{
+        width: 100%;
+        min-height: 100px;
+        max-height: 150px;
+        background: #0d41e1;
+    }
+    .filters{
+        margin-left: 50px;
+        margin-top: 20px;
+    }
+    .feedback__container{
+        max-width: 1080px;
+        margin: auto;
+        padding: 20px 135px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 50px;
+    }
+    .feedback__wrapper{
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: flex-start;
+        width: 100%;
+        gap: 20px;
+    }
+    .feedback__card__counter{
+        font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        font-size: 20px;
+        font-weight: 700;
+        min-width: 40px;
+        min-height: 40px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 50px;
+        box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+    }
+    .feedback__card{
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        gap: 25px;
+        align-items: flex-start;
+        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+        padding: 20px 40px;
+        font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    }
+    .user__information{
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: flex-start;
+        gap: 20px;
+        max-width: 300px;
+        width: 100%;
+    }
+    .user__media img{
+        max-width: 100px;
+    }
+    .user__name{
+        font-size: 18px;
+        font-weight: 600;
+    }
+    .user__shipping__counter{
+        font-size: 17px;
+        font-weight: 500;
+        color: grey;
+    }
+    .user__shipping__counter span{
+        font-weight: 600;
+    }
+    .feedback{
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+    }
+    .feedback__header{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 20px;
+    }
+    .feedback__date{
+        font-size: 16px;
+        color: grey;
+        font-weight: 500;
+    }
+    .feedback__text{
+        max-width: 500px;
+        font-size: 16px;
+        line-height: 1.5;
+    }
+    @media only screen and (max-width: 1100px) {
+        .feedback__container {
+            padding: 20px 40px;
+        }
+        .feedback__wrapper{
+            flex-direction: row;
+            gap: 5px;
+        }
+        .feedback__card__counter{
+            min-width: unset;
+            min-height: unset;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 5px;
+            box-shadow: none;
+        }
+        .user__information {
+            flex-direction: column;
+            width: unset;
+        }
+        .user__name{
+            min-width: fit-content;
+        }
+        .user__shipping__counter{
+            font-size: 14px;
+        }
+    }
+    @media only screen and (max-width: 550px) {
+        .user__information{
+            display: none;
+        }
+        .feedback__header{
+            flex-wrap: wrap;
+        }
+    }
+
+</style>
+
+<div class="feedback__section">
+    <div class="feedback__banner">
+        <div class="filters">
+            <a href="{{ path('show_feedback_reclamation', { 'sort': 'asc', 'sortBy': 'stars' }) }}">
+                <svg title="rating croissant" width="20px" height="20px" viewBox="0 -4.5 20 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                        <g id="Dribbble-Light-Preview" transform="translate(-260.000000, -6684.000000)" fill="#000000">
+                            <g id="icons" transform="translate(56.000000, 160.000000)">
+                                <path d="M223.707692,6534.63378 L223.707692,6534.63378 C224.097436,6534.22888 224.097436,6533.57338 223.707692,6533.16951 L215.444127,6524.60657 C214.66364,6523.79781 213.397472,6523.79781 212.616986,6524.60657 L204.29246,6533.23165 C203.906714,6533.6324 203.901717,6534.27962 204.282467,6534.68555 C204.671211,6535.10081 205.31179,6535.10495 205.70653,6534.69695 L213.323521,6526.80297 C213.714264,6526.39807 214.346848,6526.39807 214.737591,6526.80297 L222.294621,6534.63378 C222.684365,6535.03868 223.317949,6535.03868 223.707692,6534.63378" id="arrow_up-[#337]">
+                                </path>
+                            </g>
+                        </g>
+                    </g>
+                </svg>
+            </a>
+            <a href="{{ path('show_feedback_reclamation', { 'sort': 'desc', 'sortBy': 'stars' }) }}">
+                <svg title="rating décroissant" width="20px" height="20px" viewBox="0 -4.5 20 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                        <g id="Dribbble-Light-Preview" transform="translate(-220.000000, -6684.000000)" fill="#000000">
+                            <g id="icons" transform="translate(56.000000, 160.000000)">
+                                <path d="M164.292308,6524.36583 L164.292308,6524.36583 C163.902564,6524.77071 163.902564,6525.42619 164.292308,6525.83004 L172.555873,6534.39267 C173.33636,6535.20244 174.602528,6535.20244 175.383014,6534.39267 L183.70754,6525.76791 C184.093286,6525.36716 184.098283,6524.71997 183.717533,6524.31405 C183.328789,6523.89985 182.68821,6523.89467 182.29347,6524.30266 L174.676479,6532.19636 C174.285736,6532.60124 173.653152,6532.60124 173.262409,6532.19636 L165.705379,6524.36583 C165.315635,6523.96094 164.683051,6523.96094 164.292308,6524.36583" id="arrow_down-[#338]"></path>
+                            </g>
+                        </g>
+                    </g>
+                </svg>
+            </a>
+        </div>
+        
+    </div>
+    <div class="feedback__container">
+        {% for feedback in feedbacks %}
+            <div class="feedback__wrapper">
+                <div class="feedback__card__counter">
+                    {{ loop.index}}
+                </div>
+                <div class="feedback__card">
+                    <div class="user__information">
+                        <div class="user__media">
+                            <img src="{{asset('images/user.png')}}" alt="">
+                        </div>
+                        <div class="user__info">
+                            <div class="user__name">temp user name</div>
+                            <div class="user__shipping__counter"><span>99</span> colis envoyé</div>
+                        </div>
+                    </div>
+                    <div class="feedback">
+                        <div class="feedback__header">
+                            <div class="feedback__stars">
+                                {% for star in range(1,feedback.stars,1) %}
+                                    <svg width="20px" height="20px" viewBox="0 0 24 24" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:cc="http://creativecommons.org/ns#" xmlns:dc="http://purl.org/dc/elements/1.1/">
+                                        <g transform="translate(0 -1028.4)">
+                                            <path d="m12 1028.4 4 9 8 1-6 5 2 9-8-5-8 5 2-9-6-5 8-1z" fill="#f39c12"/>
+                                            <path d="m12 1028.4-4 9-6.9688 0.8 4.9688 4.2-0.1875 0.8 0.1875 0.2-1.75 7.8 7.75-4.8 7.75 4.8-1.75-7.8 0.188-0.2-0.188-0.8 4.969-4.2-6.969-0.8-4-9z" fill="#f1c40f"/>
+                                        </g>
+                                    </svg>
+                                {% endfor %}
+                            </div>
+                            <div class="feedback__date">{{feedback.date|date('Y-m-d')}}</div>
+                        </div>
+                        <div class="feedback__text">{{feedback.text}}</div>
+                    </div>
+                </div>
+            </div>
+            
+        {% endfor %}
+        
+    </div>
+</div>

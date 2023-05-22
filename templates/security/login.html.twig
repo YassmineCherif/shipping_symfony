@@ -1,0 +1,78 @@
+{% extends 'back.html.twig' %}
+
+{% block title %}Sign in{% endblock %}
+
+{% block stylesheets %}
+{{ parent() }}
+
+  <style>
+    .container {
+      margin-top: 200px;
+    }
+    .card-title {
+      text-align: center;
+      margin-bottom: 4rem;
+    }
+    form {
+      margin-top: 2rem;
+    }
+    .form-group {
+      margin-bottom: 2rem;
+    }
+    label {
+      font-weight: bold;
+    }
+    .btn-primary {
+      margin-top: 2rem;
+    }
+  </style>
+{% endblock %}
+
+{% block body %}
+
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <div class="card">
+        <div class="card-body">
+          {% if error %}
+          <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+          {% endif %}
+
+      {% if app.user %}
+      <div class="mb-3">
+        You are logged in as {{ app.user.userIdentifier }}, <a href="{{ path('app_logout') }}">Logout</a>
+      </div>
+      {% endif %}
+
+      <h1 class="card-title">Please sign in</h1>
+
+      <form method="post">
+        <div class="form-group">
+          <label for="inputEmail">Email address</label>
+          <input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control" autocomplete="email" required autofocus>
+        </div>
+
+        <div class="form-group">
+          <label for="inputPassword">Password</label>
+          <input type="password" name="password" id="inputPassword" class="form-control" autocomplete="current-password" required>
+        </div>
+
+        <div class="form-group">
+          <a href="{{ path('reset_password_request') }}">Forgot password?</a>
+        </div>
+
+        <input type="hidden" name="_csrf_token"
+        value="{{ csrf_token('authenticate') }}"
+        >
+
+        <button class="btn btn-primary btn-block" type="submit">
+          Sign in
+        </button>
+      </form>
+    </div>
+  </div>
+</div>
+  </div>
+</div>
+{% endblock %}

@@ -1,0 +1,75 @@
+{% extends 'back.html.twig' %}
+
+{% block body %}
+
+<style>
+    .profile-form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 50px;
+    }
+
+    .profile-form p {
+        font-size: 24px;
+        font-weight: bold;
+        margin-bottom: 30px;
+    }
+
+    .form-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 20px;
+        border-radius: 5px;
+        background-color: #f7f7f7;
+        box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.3);
+    }
+
+    .form-container input[type="text"],
+    .form-container input[type="email"],
+    .form-container input[type="password"] {
+        width: 100%;
+        padding: 10px;
+        margin: 10px 0;
+        border-radius: 5px;
+        border: none;
+        background-color: #fff;
+        box-shadow: inset 0px 1px 3px rgba(0, 0, 0, 0.2);
+        font-size: 16px;
+    }
+
+    .form-container input[type="submit"] {
+        width: 100%;
+        padding: 10px;
+        margin: 20px 0 10px;
+        border-radius: 5px;
+        border: none;
+        background-color: #4caf50;
+        color: #fff;
+        font-size: 18px;
+        font-weight: bold;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+
+    .form-container input[type="submit"]:hover {
+        background-color: #388e3c;
+    }
+</style>
+
+<div class="container" style="margin-top: 200px">
+    <div class="row">
+        <div class="col-md-6 offset-md-3">
+            <div class="card">
+                <h1 class="card-title text-center mb-4 text-primary">editing the profile of  {{ app.user.prenom }} {{ app.user.nom }}</h1>
+
+                <div class="form-container">
+                    {{ form(form) }}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,12 @@
+{% extends 'client_back.html.twig' %}
+
+
+{% block body %}
+<h1>Comment souhaitez vous payer ?</h1>
+<ul>
+    <li><a href="#">Par chèque</a>
+    </li>
+    <li><a href="{{ path('app_carte')}}">Par carte</a></li>
+    <li><a href="#">Par virement</a></li>
+</ul>
+{% endblock %}

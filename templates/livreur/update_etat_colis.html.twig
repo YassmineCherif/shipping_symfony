@@ -1,0 +1,43 @@
+{% extends 'livreur_back.html.twig' %}
+
+    {% block body %}
+    
+    <style>
+      .button_submit{
+          margin-top: 20px;
+      }
+    .etat_colis_container{
+      margin-right: 10px;
+      font-weight: 600;
+      font-size: 16px;
+      color: #000000;
+    }
+    .update_colis_container{
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+    .update_colis_title{
+      margin-bottom: 10px;
+      color: #000000;
+    }
+    .button_submit{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  </style>
+    <div class="update_colis_container">
+        <div class="update_colis_title">
+            <h1>Update Etat Colis</h1>
+        </div>
+        <div class="form_update_container">
+            {{ form_start(form) }}
+            {{ form_row(form.etat_colis) }}
+        </div>
+    </div>
+            <div class="button_submit"><button type="submit" class="btn btn-primary">Update Status</button></div>
+            {{ form_end(form) }}
+    {% endblock %}
+  

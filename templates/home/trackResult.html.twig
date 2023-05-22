@@ -1,0 +1,7 @@
+{% extends 'base.html.twig' %}
+
+{% if tracking_status == true %}
+    <script>
+        alert('Votre colis est : ' + '{{tracking_status}}');
+    </script>
+{% endif %}

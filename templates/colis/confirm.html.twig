@@ -1,0 +1,31 @@
+{% extends 'client_back.html.twig' %}
+
+{% block body %}
+    <h1>Confirmation de l'ajout du colis</h1>
+
+    <p>Veuillez vérifier les informations suivantes :</p>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Référence :</th>
+                <td>{{ colis.ref }}</td>
+            </tr>
+            <tr>
+                <th>Poids :</th>
+                <td>{{ colis.poids }}</td>
+            </tr>
+            <tr>
+                <th>Prix :</th>
+                <td>{{ colis.prix }}</td>
+            </tr>
+            <!-- Afficher d'autres informations du colis ici -->
+        </tbody>
+    </table>
+
+    <form method="post" action="{{ path('app_methode') }}">
+        <input type="hidden" name="colis_id" value="{{ colis.id }}">
+        <button type="submit" name="action" value="valider">Confirmer</button>
+        <button type="submit" name="action" value="annuler">Annuler</button>
+    </form>
+{% endblock %}
